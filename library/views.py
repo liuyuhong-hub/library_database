@@ -2,7 +2,6 @@ from django.shortcuts import render
 # Create your views here.
 import library.library as lb
 def home(request):
-    # print("before")
     return render(request, 'home.html', {"login": '登录/注册'})
 
 def signin(request):
@@ -37,4 +36,4 @@ def pay(request):
     return render(request, 'pay.html')
 
 def manager(request):
-    return render(request, 'manager.html')
+    return render(request, 'manager.html',{"login": '登录'})
