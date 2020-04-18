@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>同济大学图书馆-管理员界面</title>
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap-4.3.1.css' %}" rel="stylesheet">
+    <style type="text/css">
+    body {
+        background-image: url("{% static 'images/bg.png'%}");
+    }
+    </style>
+</head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">同济大学图书馆管理界面</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">首页<span class="sr-only">(current)</span></a>
+        </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+        </form>
+      </div>
+      <button type="button" class="btn btn-link" onclick="location.href='/signin' ">{{ login }}&nbsp;</button>
+  </nav>
+    <div class="container mt-2">
+      <div class="row">
+        <div class="col-12">
+          <div class="jumbotron">
+            <h1 class="text-center">同济大学图书馆welcome！！！</h1>
+            <form action="/book_search/" target="_blank" method="post">
+              {% csrf_token %}
+              <div class="row justify-content-center">
+              <div class="col-auto">
+                <p><span class="form-inline my-2 my-lg-0"> </span></p>
+              </div>
+              <input class="form-control mr-sm-2" name="search" type="search" placeholder="在馆藏目录中搜索" aria-label="Search">
+                <div class="col-auto">
+           	        <p><span class="form-inline my-2 my-lg-0"></span></p>
+                </div>
+              </div>
+                <p class="text-center">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                </p>
+            </form>
+            <form action="/reader_search/" target="_blank" method="post">
+              {% csrf_token %}
+              <div class="row justify-content-center">
+              <div class="col-auto">
+                <p><span class="form-inline my-2 my-lg-0"> </span></p>
+              </div>
+              <input class="form-control mr-sm-2" name="search" type="search" placeholder="读者查找" aria-label="Search">
+                <div class="col-auto">
+           	        <p><span class="form-inline my-2 my-lg-0"></span></p>
+                </div>
+              </div>
+                <p class="text-center">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                </p>
+            </form>
+          </div>
+</div>
+      </div>
+    </div>
+  <div class="container">
+	<div class="text-center">
+	  <h class="h2">管理员服务</h>
+  	  <div></div>
+	  <h class="h2">&nbsp;</h>
+    </div>
+  </div>
+  <div class="container mt-0">
+    <div class="jumbotron">
+<div class="row">
+    <div class="text-center col-md-6 col-12 offset-lg-0 col-lg-4">
+          <h3>超期图书统计服务</h3>
+          <a class="btn btn-info btn-lg" href="/manager_overdue_signin" target="_blank" role="button">超期图书统计服务</a>
+    </div>
+		<div class="text-center col-md-6 col-12 col-lg-4">
+		  <h3>图书借阅记录统计服务</h3>
+		  <a class="btn btn-warning btn-lg" href="/manager_borrow_signin" target="_blank" role="button">图书借阅记录统计服务</a>
+		</div>
+		<div class="text-center col-md-6 col-12 col-lg-4">
+  		  <h3>罚款信息统计服务&nbsp;</h3>
+          <a class="btn btn-danger btn-lg" href="/manage_compesate_signin" target="_blank" role="button">罚款信息统计服务&nbsp;</a>
+      	  <p>&nbsp;</p>
+		</div>
+      </div>
+  </div>
+  <hr>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p>Copyright © MyWebsite. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+          <link href="{% static 'css/bootstrap-4.3.1.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.3.1.js' %}"></script>
+	<!--<script src="Untitled-1.js"</script>-->
+  </div>
+  </body>
+</html>

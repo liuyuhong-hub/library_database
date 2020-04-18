@@ -1,0 +1,49 @@
+<!doctype html>
+{% load static %}
+<html class ="fixed">
+   <head>
+       <meta charset="UTF-8">
+       <title>还书</title>
+       <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+       <!-- Theme CSS -->
+       <link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+       <!-- Skin CSS -->
+		<link rel="stylesheet" href="{% static 'css/default.css' %}" />
+       <style type="text/css">
+           body {
+           background-image: url("{% static 'images/bg.png'%}");
+           }
+       </style>
+   </head>
+   <body>
+       <section class ="body-sign">
+           <div class ="center-sign">
+               <div class ="panel panel-sign">
+                   <div class ="panel-title-sign mt-xl text-right">
+                       <h2 class ="title text-uppercase text-bold m-none"><i class ="fa fa-user mr-xs"></i>借书服务</h2>
+                   </div>
+                   <div class ="panel-body">
+                       <form action = "/borrow_book/" method = "post">
+                           {% csrf_token %}
+                           <div class ="form-group mb-lg">
+                               <label> 借书条码号 </label>
+                               <input name = "barcode_1" type="text" class="form-control input-lg"/>
+                           </div>
+                           <div class ="form-group mb-lg">
+                               <input name = "barcode_2" type="text" class="form-control input-lg"/>
+                           </div>
+                           <div class ="form-group mb-lg">
+                               <input name = "barcode_3" type="text" class="form-control input-lg"/>
+                           </div>
+                           <div class ="col-sm-16 text-center">
+                              <button type = "submit" class ="btn btn-primary hidden-xs"">借阅</button>
+                              <button type = "submit" class ="btn btn-primary btn-block btn-lg visible-xs mt-lg">borrow</button>
+                           </div>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </section>
+   </body>
+</html>

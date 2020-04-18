@@ -1,0 +1,72 @@
+<!doctype html>
+{% load static %}
+<html class="fixed">
+   <head>
+       <!-- Basic -->
+       <meta charset="UTF-8">
+       <title>同济大学图书馆数目检索系统</title>
+       <!-- Vendor CSS -->
+       <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+       <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+       <!-- Specific Page Vendor CSS -->
+       <link rel="stylesheet" href="{% static 'css/select2.css' %}" />
+       <!-- Theme CSS -->
+       <link rel="stylesheet" href="{% static 'css/theme-search.css' %}" />
+       <!-- Skin CSS -->
+       <link rel="stylesheet" href="{% static 'css/default.css' %}" />
+       <!-- Head Libs -->
+       <script src="{% static 'js/modernizr.js' %}"></script>
+       <style type="text/css">
+           body {
+           background-image: url("{% static 'images/bg.png' %}");
+           }
+       </style>
+   </head>
+   <body>
+       <section class="body">
+           <div class="inner-wrapper">
+       		<section role="main" class="content-body">
+					<header class="page-header">
+       				<h2>同济大学图书馆检索系统</h2>
+       			</header>
+      				<section class="panel">
+						<header class="panel-heading">
+   						<h2 class="panel-title">当前检索词为：数据库</h2>
+   					</header>
+   					<div class="panel-body">
+                           <table class="table table-bordered table-striped mb-none" id="datatable-details">
+<thead><tr><th>书名</th>
+<th>主编</th>
+<th>出版信息</th>
+<th>ISBN</th>
+<th>索书号</th>
+<th>馆藏复本</th>
+<th>可借复本</th>
+</tr></thead>
+<tr><td>数据库原理及应用</td>
+<td>李月军,付良廷</td>
+<td>清华大学出版社, 201902, CNY59.80</td>
+<td>978-7-302-52962-0</td>
+<td>TP311.138SQ/ZL422-2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</table>                       </div>
+                   </section>
+               <!-- end: page-->
+               </section>
+           </div>
+       </section>
+       <!-- Vendor -->
+       <script src = "{% static 'js/jquery.js' %}"></script>
+       <script src = "{% static 'js/nanoscroller.js' %}"></script>
+       <!-- Specific Page Vendor -->
+       <script src = "{% static 'js/select2.js' %}"></script>
+       <script src = "{% static 'js/jquery.dataTables.js' %}"></script>
+       <script src = "{% static 'js/datatables.js' %}"></script>
+       < !-- Theme Base, Components and Settings -->
+       <script src = "{% static 'js/theme.js' %}"></script>
+       < !-- Examples -->
+   </body >
+<script>var book_data={{ book_json | safe }};</script>       <script src = "{% static 'js/examples.datatables.row.with.details.js' %}"></script>
+</html>

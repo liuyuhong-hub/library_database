@@ -1,0 +1,107 @@
+<!doctype html>
+{% load static %}
+<html class="fixed">
+	<head>
+		<!-- Basic -->
+		<meta charset="UTF-8">
+		<title>同济大学图书馆-我的图书馆</title>
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Vendor CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap-4.3.1.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="{% static 'css/theme-custom.css' %}">
+        <style type="text/css">
+           body {
+           background-image: url("{% static 'images/bg.png'%}");
+           }
+        </style>
+		<!-- Head Libs -->
+		<script src="{% static 'js/modernizr.js' %}"></script>
+
+	</head>
+	<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" >同济大学图书馆</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home_afterlogin/" target="_blank">首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">您好，{{ cur_user }}</a>
+                </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                </form>
+            </div>
+            <button type="button" class="btn btn-link" onclick="location.href='{% url "home" %}' ">退出登录</button>
+        </nav>
+		<section class="body">
+				<section role="main" class="content-body">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-md-12">
+										<section class="panel">
+											<header class="panel-heading">
+												<h2 class="panel-title">图书馆个人主页: {{ cur_user_name }}</h2>
+											</header>
+											<div class="panel-body">
+												<div class="row text-center">
+													<div class="col-md-6">
+														<div class="circular-bar">
+															<div class="circular-bar-chart" data-percent="{{ borrow_percent }}" data-plugin-options='{ "barColor": "#0088CC", "delay": 300 }'>
+																<strong>当前借阅</strong>
+																<label><span>{{ borrow_num }}</span>/10</label>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="circular-bar">
+															<div class="circular-bar-chart" data-percent="{{overdue_percent}}" data-plugin-options='{ "barColor": "#2BAAB1", "delay": 600 }'>
+																<strong>超期图书</strong>
+																<label><span>{{ overdue_num }}</span>/10</label>
+															</div>
+														</div>
+													</div>
+												</div>
+                                                <div class="row text-center">
+                                                    <div class="col-md-6">
+                                                        <a class="btn btn-info btn-lg" href="/borrow_history" target="_blank" role="button">我的借阅</a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="btn btn-danger btn-lg" href="/compesate_history" target="_blank" role="button">我的赔偿</a>
+                                                    </div>
+		    									</div>
+                                            </div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+					<!-- end: page -->
+				</section>
+			</div>
+		</section>
+
+		<!-- Vendor -->
+		<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/nanoscroller.js' %}"></script>
+		<script src="{% static 'js/jquery.easypiechart.js' %}"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="{% static 'js/theme.js' %}"></script>
+
+		<!-- Theme Initialization Files -->
+		<script src="{% static 'js/theme.init.js' %}"></script>
+
+	</body>
+</html>

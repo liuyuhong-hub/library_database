@@ -1,0 +1,45 @@
+<!doctype html>
+{% load static %}
+<html class ="fixed">
+   <head>
+       <meta charset="UTF-8">
+       <title>同济大学图书馆---借书</title>
+       <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+       <!-- Theme CSS -->
+       <link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+       <!-- Skin CSS -->
+		<link rel="stylesheet" href="{% static 'css/default.css' %}" />
+       <style type="text/css">
+           body {
+           background-image: url("{% static 'images/bg.png'%}");
+           }
+       </style>
+   </head>
+   <body>
+       <section class ="body-sign">
+           <div class ="center-sign">
+               <div class ="panel panel-sign">
+                   <div class ="panel-title-sign mt-xl text-right">
+                       <h2 class ="title text-uppercase text-bold m-none"><i class ="fa fa-user mr-xs"></i>借书服务</h2>
+                   </div>
+                   <div class ="panel-body">
+                       <form action = "/borrow_book_confirm/" method = "post">
+                           {% csrf_token %}
+                               <p>确定借阅以下图书？
+</p>
+                               <p>数据库原理及应用,3124791
+</p>
+                               <p>数据库原理及应用,3124792
+</p>
+                               <p>操作系统原理与实践,3130144
+</p>
+                               <button type="submit" class ="btn btn-primary hidden-xs" value="confirm" onclick="alert('借阅成功！！！')">确定</button>
+                       </form>
+                       {{info_message}}
+                   </div>
+               </div>
+           </div>
+       </section>
+   </body>
+</html>
