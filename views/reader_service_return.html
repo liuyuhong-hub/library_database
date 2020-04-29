@@ -1,135 +1,57 @@
 <!doctype html>
 {% load static %}
-<html class="fixed">
+<html class ="fixed">
    <head>
-       <!-- Basic -->
        <meta charset="UTF-8">
-       <title>借阅历史查询</title>
-       <!-- Vendor CSS -->
+       <title>同济大学图书馆---还书</title>
        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
-       <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
-       <!-- Specific Page Vendor CSS -->
-       <link rel="stylesheet" href="{% static 'css/select2.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+       <link rel="stylesheet" href="{% static 'css/bootstrap-multiselect.css' %}" />
        <!-- Theme CSS -->
-       <link rel="stylesheet" href="{% static 'css/theme-search.css' %}" />
+       <link rel="stylesheet" href="{% static 'css/theme.css' %}" />
        <!-- Skin CSS -->
-       <link rel="stylesheet" href="{% static 'css/default.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/default.css' %}" />
        <!-- Head Libs -->
        <script src="{% static 'js/modernizr.js' %}"></script>
        <style type="text/css">
            body {
-           background-image: url("{% static 'images/bg.png' %}");
+           background-image: url("{% static 'images/bg.png'%}");
            }
        </style>
    </head>
    <body>
-       <section class="body">
-           <div class="inner-wrapper">
-       		<section role="main" class="content-body">
-					<header class="page-header">
-       				<h2>借阅历史查询：1751988</h2>
-       			</header>
-      				<section class="panel">
-						<header class="panel-heading">
-   						<h2 class="panel-title">当前借阅</h2>
-   					</header>
-   					<div class="panel-body">
-   					    <table class ="table table-bordered table-striped mb-none" id="datatable-default" name="table-notreturn">
-<thead><tr><th>条码号</th>
-<th>书名</th>
-<th>借书日期</th>
-<th>截止日期</th>
-</tr></thead>
-
-</table>                       </div>
-                   </section>
-      				<section class="panel">
-						<header class="panel-heading">
-   						<h2 class="panel-title">借阅历史</h2>
-   					</header>
-   					<div class="panel-body">
-   					    <table class ="table table-bordered table-striped mb-none" id="datatable-default" name="table-returned">
-<thead><tr><th>条码号</th>
-<th>书名</th>
-<th>借书日期</th>
-<th>还书日期</th>
-</tr></thead>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-05-25</td>
-<td>2020-06-30</td>
-</tr>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-03-23</td>
-<td>2020-04-25</td>
-</tr>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3124792</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3124791</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3124792</td>
-<td>数据库原理及应用</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-<tr><td>3130144</td>
-<td>操作系统原理与实践</td>
-<td>2020-04-17</td>
-<td>2020-04-17</td>
-</tr>
-</table>                       </div>
-                   </section>
-               <!-- end: page-->
-               </section>
+       <section class ="body-sign">
+           <div class ="center-sign">
+               <div class ="panel panel-sign">
+                   <div class ="panel-title-sign mt-xl text-right">
+                       <h2 class ="title text-uppercase text-bold m-none"><i class ="fa fa-user mr-xs"></i>还书服务</h2>
+                   </div>
+                   <div class ="panel-body">
+                       <form class ="form-horizontal form-bordered" action="/return_book/" method="post">
+                           {% csrf_token %}                           <div class ="form-group">
+                               <label class ="col-md-3 control-label">选择要还的书</label>
+                               <div class ="col-md-6" >
+                                   <select class ="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "includeSelectAllOption": true }' id="ms_example">
+                                       <optgroup label="超期图书">                                       </optgroup>                                       <optgroup label="未超期图书">                                       </optgroup>                                   </select>
+                               </div>
+                           </div>
+                           <div align = "center">
+                               <button type = "submit" class ="btn btn-primary hidden-xs">还书</button>
+                               <button type = "submit" class ="btn btn-primary btn-block btn-lg visible-xs mt-lg">return</button>
+                           </div>
+                       </form>
+                   </div>
+               </div>
            </div>
        </section>
        <!-- Vendor -->
        <script src = "{% static 'js/jquery.js' %}"></script>
+       <script src = "{% static 'js/bootstrap.js' %}"></script>
        <script src = "{% static 'js/nanoscroller.js' %}"></script>
-       <!-- Specific Page Vendor -->
-       <script src = "{% static 'js/select2.js' %}"></script>
-       <script src = "{% static 'js/jquery.dataTables.js' %}"></script>
-       <script src = "{% static 'js/datatables.js' %}"></script>
-       < !-- Theme Base, Components and Settings -->
+       <script src = "{% static 'js/bootstrap-multiselect.js' %}"></script>
+       <!-- Theme Base, Components and Settings -->
        <script src = "{% static 'js/theme.js' %}"></script>
-       <script src = "{% static 'js/examples.datatables.row.with.details.js' %}"></script>
-       < !-- Examples -->
-   </body >
-</html >
+       <!-- Theme  Initialization Files -->
+       <script src = "{% static 'js/theme.init.js' %}"></script>
+   </body>
+</html>

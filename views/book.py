@@ -12,7 +12,7 @@ def book_search(request):
         print(search)
         book_db = db.global_db
         args = '%' + search + '%'
-        sqil = "select title,editor,publishing_house,published_date,ISBN,callno,price from book_msg where title like '%s%%' or barcode like '%s%%' or editor like '%s%%' or publishing_house like '%s%%' or published_date like '%s%%' or abstract_notes like '%s%%' group by ISBN"%(args,args,args,args,args,args)
+        sqil = "select title,editor,publishing_house,published_date,ISBN,callno,price from book_msg where title like '%s' or barcode like '%s' or editor like '%s' or publishing_house like '%s' or published_date like '%s' or abstract_notes like '%s' group by ISBN"%(args,args,args,args,args,args)
         # ,args,args,args,args,args)
 
         print(sqil)

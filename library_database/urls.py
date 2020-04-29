@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
+from django.urls import path, include
 import library.views as views
 import views.index as index
 import views.book as book
@@ -23,7 +24,8 @@ import views.return_book as rb
 import views.borrow_book as bb
 import views.compesate_book as cb
 import views.mylibrary as ml
-from django.urls import path, include
+import views.manager as ma
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -67,6 +69,7 @@ urlpatterns = [
 
     # 管理员界面
     url(r'^manager/$',views.manager),
+    path('manage_book_search/', ma.manage_book_search),
 
 ]
 

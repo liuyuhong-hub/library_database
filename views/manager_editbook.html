@@ -1,71 +1,76 @@
 <!doctype html>
 {% load static %}
 <html class="fixed">
-	<head>
-		<!-- Basic -->
-		<meta charset="UTF-8">
-		<title>管理员界面</title>
-		<!-- Mobile Metas -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<!-- Vendor CSS -->
-		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
-		<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
-		<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
-		<!-- Specific Page Vendor CSS -->
-		<link rel="stylesheet" href="{% static 'css/select2.css' %}" />
-		<!-- Theme CSS -->
-		<link rel="stylesheet" href="{% static 'css/theme.css' %}" />
-		<!-- Skin CSS -->
-		<link rel="stylesheet" href="{% static 'css/default.css' %}" />
-		<!-- Head Libs -->
-		<script src="{% static 'js/modernizr.js' %}"></script>
-	</head>
-	<body>
-		<section class="body">
-			<div class="inner-wrapper">
-				<!-- start: sidebar -->
-					<!-- start: page -->
-							<header class="panel-heading">
-								<h2 class="panel-title">管理员可修改书目信息</h2>
-							</header>
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="mb-md">
-											<button id="addToTable" class="btn btn-primary">添加图书<i class="fa fa-plus"></i></button>
-										</div>
-									</div>
+   <head>
+       <!-- Basic -->
+       <meta charset="UTF-8">
+       <title>管理员界面---修改图书信息</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+       <!-- Vendor CSS -->
+       <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+       <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+       <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+       <!-- Specific Page Vendor CSS -->
+       <link rel="stylesheet" href="{% static 'css/select2.css' %}" />
+{#       <!-- Theme CSS -->#}
+{#       <link rel="stylesheet" href="{% static 'css/theme.css' %}" />#}
+       <link rel="stylesheet" href="{% static 'css/theme-search.css' %}" />
+       <!-- Skin CSS -->
+       <link rel="stylesheet" href="{% static 'css/default.css' %}" />
+       <!-- Head Libs -->
+       <script src="{% static 'js/modernizr.js' %}"></script>
+       <style type="text/css">
+           body {
+           background-image: url("{% static 'images/bg.png' %}");
+           }
+       </style>
+   </head>
+   <body>
+       <section class="body">
+           <div class="inner-wrapper">
+       		<section role="main" class="content-body">
+					<header class="page-header">
+       				<h2>同济大学图书馆检索系统</h2>
+       			</header>
+      				<section class="panel">
+						<header class="panel-heading">
+   						<h2 class="panel-title"> 管理员可修改书目信息</h2>
+   					</header>
+   					<div class="panel-body">
+                        <div class="row">
+							<div class="col-sm-6">
+								<div class="mb-md">
+									<button id="addToTable" class="btn btn-primary">添加图书<i class="fa fa-plus"></i></button>
 								</div>
-								<table class="table table-bordered table-striped mb-none" id="datatable-editable">
-									<thead>
-										<tr>
-											<th>Rendering engine</th>
-											<th>Browser</th>
-											<th>Platform(s)</th>
-											<th>Actions</th>
-										</tr>
-									</thead>
-									<tbody>
-										
-										
-										<tr class="gradeU">
-											<td>Other browsers</td>
-											<td>All others</td>
-											<td>-</td>
-											<td class="actions">
-												<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
-												<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
-												<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
 							</div>
-			</div>
-		</section>
+                        </div>
+                           <table class="table table-bordered table-striped mb-none" id="datatable-editable">
+<thead><tr><th>书名</th>
+<th>主编</th>
+<th>出版信息</th>
+<th>ISBN</th>
+</tr></thead>
+                               <tbody>
+											<tr class="gradeU">
+												<td>Other browsers</td>
+												<td>All others</td>
+												<td>-</td>
+												<td class="actions">
+													<a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+													<a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+													<a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+													<a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+												</td>
+											</tr>
+                               </tbody>
+</table>                       </div>
+                   </section>
+               <!-- end: page-->
+               </section>
+           </div>
+       </section>
 
-		<div id="dialog" class="modal-block mfp-hide">
+       <div id="dialog" class="modal-block mfp-hide">
 			<section class="panel">
 				<header class="panel-heading">
 					<h2 class="panel-title">确定?</h2>
@@ -88,7 +93,7 @@
 			</section>
 		</div>
 
-		<!-- Vendor -->
+       <!-- Vendor -->
 		<script src="{% static 'js/jquery.js' %}"></script>
 		<script src="{% static 'js/bootstrap.js' %}"></script>
 		<script src="{% static 'js/nanoscroller.js' %}"></script>
@@ -103,5 +108,5 @@
 		<script src="{% static 'js/theme.init.js' %}"></script>
 		<!-- Examples -->
 		<script src="{% static 'js/examples.datatables.editable.js' %}"></script>
-	</body>
+   </body >
 </html>
