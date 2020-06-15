@@ -82,4 +82,9 @@ urlpatterns = [
     path('change/', ma.change),
     path('delete/', ma.delete),
 
+    #管理员查询服务
+    path('manager_overdue_signin/', views.manager_overdue_signin),
+    path('manager_borrow_signin/', views.manager_borrow_signin),
+    path('manager_compesate_signin/', views.manager_compesate_signin),
+
 ]

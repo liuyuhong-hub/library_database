@@ -31,11 +31,11 @@ def manager_login(request):
 
             ###   待改        ###
             elif next_html == 'manager_service_overdue.html':
-                return rb.search_returnbooks(request)
+                return mo.overdue(request)
             elif next_html == 'manager_service_borrow.html':
-                return cb.search_lostbooks(request)
+                return mb.borrow(request)
             elif next_html == 'manager_service_compesate.html':
-                return cb.search_lostbooks(request)
+                return mc.compesate(request)
                 # return render(request, 'mylibrary.html', {'cur_user': lb.global_lb.now_login[0], 'cur_user_name': user_name[0][0], 'borrow_num': 1, 'overdue_num': 3, 'borrow_percent': 10, 'overdue_percent':30})
             else:
                 return render(request, next_html)
