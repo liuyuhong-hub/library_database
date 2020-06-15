@@ -39,6 +39,5 @@ class database():
         cur.close()
         return result
 
-
 global_db = database()
 # d1.get_index()

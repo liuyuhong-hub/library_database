@@ -30,10 +30,16 @@ def reader_compesate_signin(request):
     return render(request, 'signin.html', {"nextHtml": "reader_service_compesation.html"})
 
 def test(request):
-    return render(request, 'reader_service_borrow_num.html')
+    return render(request, 'forms-advanced.html')
 
 def pay(request):
     return render(request, 'pay.html')
 
 def manager(request):
     return render(request, 'manager.html',{"login": '登录'})
+
+def manager_signin(request):
+    return render(request, 'manager_signin.html', {"nextHtml": "manager.html"})
+
+def manager_signup(request):
+    return render(request, 'manager_signup.html')

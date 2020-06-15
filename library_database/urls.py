@@ -25,7 +25,7 @@ import views.borrow_book as bb
 import views.compesate_book as cb
 import views.mylibrary as ml
 import views.manager as ma
-
+import views.manager_index as mi
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -69,8 +69,17 @@ urlpatterns = [
 
     # 管理员界面
     url(r'^manager/$',views.manager),
+    # 管理员登录注册
+    path('manager_signin/', views.manager_signin),
+    path('manager_signup/', views.manager_signup),
+
+    path('manager_login/', mi.manager_login),
+    path('manager_register/', mi.manager_register),
+
+    #管理员编辑书籍信息
     path('manage_book_search/', ma.manage_book_search),
+    path('edit/', ma.edit),
+    path('change/', ma.change),
+    path('delete/', ma.delete),
 
 ]
-
-
